@@ -1,202 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Healthcare App</title>
+  <meta charset="UTF-8" />
+  <title>🧠 Smart Health Checker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
+    * { box-sizing: border-box; }
     body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      padding: 20px;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #2b5876, #4e4376), url('https://www.transparenttextures.com/patterns/dark-mosaic.png');
+      background-blend-mode: overlay;
+      background-size: cover;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
     }
-    .hidden {
-      display: none;
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(14px);
+      border-radius: 16px;
+      padding: 40px 30px;
+      width: 420px;
+      color: #fff;
+      box-shadow: 0 0 25px rgba(0,0,0,0.2);
+      animation: fadeIn 0.5s ease;
+      text-align: center;
+      margin-bottom: 20px;
     }
-    .form-step {
-      background: #fff;
-      padding: 20px;
-      margin-bottom: 10px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      font-family: inherit;
     }
+    input { background: #fff; color: #333; }
     button {
-      padding: 10px 20px;
-      margin-top: 10px;
+      background-color: #ffffff;
+      color: #2b5876;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
     }
-    input.error {
-      border: 2px solid #ff4d4d;
-      background-color: #ffe6e6;
+    button:hover { background-color: #f3e8ff; }
+    .back-btn {
+      background: transparent;
+      border: 1px solid #fff;
+      color: white;
+      margin-top: 12px;
     }
-    @keyframes shake {
-      0% { transform: translateX(0); }
-      25% { transform: translateX(-4px); }
-      50% { transform: translateX(4px); }
-      75% { transform: translateX(-4px); }
-      100% { transform: translateX(0); }
+    .hidden { display: none; }
+    h2, h3 { margin-bottom: 15px; }
+    .emoji { font-size: 40px; margin-bottom: 10px; }
+    .gender-btn {
+      background-color: rgba(255, 255, 255, 0.3);
+      color: white;
+      border: 1px solid #fff;
+      border-radius: 8px;
+      padding: 10px 16px;
+      margin: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 30%;
+      display: inline-block;
     }
-    .shake {
-      animation: shake 0.3s ease;
+    .gender-btn.selected {
+      background-color: #ffffff;
+      color: #2b5876;
+      font-weight: bold;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .info-box {
+      background-color: rgba(255,255,255,0.2);
+      border-radius: 12px;
+      padding: 12px;
+      margin-top: 15px;
+      font-size: 15px;
+      color: #ffe;
+    }
+    .error-message {
+      color: #ffb3b3;
+      font-size: 14px;
+      margin-top: 8px;
     }
   </style>
 </head>
-
 <body>
-  <div class="form-step" id="step1">
-    <h2>Welcome to the Healthcare App</h2>
-    <p>Enter your name:</p>
-    <input type="text" id="username" oninput="checkInputs()">
+  <div class="card" id="step1">
+    <div class="emoji">👋😄</div>
+    <h2>Welcome!</h2>
+    <input type="text" id="username" placeholder="🧑 Enter your name" oninput="checkInputs()" />
     <p>Select your gender:</p>
-    <label><input type="radio" name="gender" value="male" onclick="selectGender('male')"> Male</label>
-    <label><input type="radio" name="gender" value="female" onclick="selectGender('female')"> Female</label>
-    <p id="inputError" style="color:red;"></p>
-    <button id="next-btn" onclick="goToChoice()" disabled>Next</button>
+    <div>
+      <button type="button" class="gender-btn" onclick="selectGender('Male')">👨 Male</button>
+      <button type="button" class="gender-btn" onclick="selectGender('Female')">👩 Female</button>
+      <button type="button" class="gender-btn" onclick="selectGender('Other')">🌈 Other</button>
+    </div>
+    <button id="next-btn" onclick="goToChoice()">➡ Next</button>
+    <p id="inputError" class="error-message"></p>
   </div>
 
-  <div class="form-step hidden" id="step2">
-    <h2 id="greeting"></h2>
-    <p>Select a health option:</p>
-    <button onclick="goToBMI()">BMI Calculator</button>
-    <button onclick="goToPulse()">Check Pulse Rate</button>
-    <button onclick="goToTemp()">Check Body Temperature</button>
-    <button onclick="goToSleep()">Sleep Cycle Info</button>
-    <p id="dailyTip"></p>
+  <div class="card hidden" id="step2">
+    <div class="emoji">🙋‍♂️👀</div>
+    <h2 id="greeting">Hi!</h2>
+    <p>What would you like to check?</p>
+    <button onclick="showAge()">🎂 Check Age</button>
+    <button onclick="showBMI()">⚖ Check BMI</button>
+    <button onclick="showPulse()">💓 Check Heart Rate</button>
+    <button onclick="showTemperature()">🌡 Check Temperature</button>
+    <button onclick="showSleep()">🛏 Sleep Time Calculator</button>
+    <button onclick="showWater()">🚰 Water Intake</button>
+    <button onclick="showMotivation()">💬 Motivational Quote</button>
+    <div class="info-box" id="dailyTipBox"></div>
+    <button class="back-btn" onclick="backToName()">🔙 Back</button>
   </div>
 
-  <div class="form-step hidden" id="bmiSection">
-    <h3>BMI Calculator</h3>
-    <input type="number" id="height" placeholder="Height (cm)">
-    <input type="number" id="weight" placeholder="Weight (kg)">
-    <button onclick="calculateBMI()">Calculate</button>
-    <p id="bmiResult"></p>
-    <p id="bmiStatus"></p>
-    <button onclick="backToChoice()">Back</button>
+  <div class="card hidden" id="ageScreen">
+    <div class="emoji">🎂</div>
+    <h2>Check Your Age</h2>
+    <input type="date" id="birthdate" />
+    <button onclick="calculateAge()">🔎 Calculate</button>
+    <h3 id="ageResult"></h3>
+    <button class="back-btn" onclick="backToChoice()">🔙 Back</button>
   </div>
 
-  <div class="form-step hidden" id="pulseSection">
-    <h3>Pulse Rate Checker</h3>
-    <p>Place your finger on your wrist and count beats for 15 seconds.</p>
-    <input type="number" id="pulse" placeholder="Beats in 15 seconds">
-    <button onclick="checkPulse()">Check</button>
-    <p id="pulseResult"></p>
-    <button onclick="backToChoice()">Back</button>
+  <div class="card hidden" id="bmiScreen">
+    <div class="emoji">⚖</div>
+    <h2>BMI Calculator</h2>
+    <input type="number" id="height" placeholder="📏 Height (cm)" />
+    <input type="number" id="weight" placeholder="⚖ Weight (kg)" />
+    <button onclick="calculateBMI()">📊 Calculate</button>
+    <h3 id="bmiResult"></h3>
+    <h3 id="bmiStatus"></h3>
+    <button class="back-btn" onclick="backToChoice()">🔙 Back</button>
   </div>
 
-  <div class="form-step hidden" id="tempSection">
-    <h3>Body Temperature Checker</h3>
-    <input type="number" id="temp" placeholder="Enter your temperature (°C)">
-    <button onclick="checkTemp()">Check</button>
-    <p id="tempResult"></p>
-    <button onclick="backToChoice()">Back</button>
+  <div class="card hidden" id="pulseScreen">
+    <div class="emoji">💓</div>
+    <h2>Heart Rate Checker</h2>
+    <input type="number" id="pulse" placeholder="💓 BPM" />
+    <button onclick="checkPulse()">📈 Analyze</button>
+    <h3 id="pulseResult"></h3>
+    <button class="back-btn" onclick="backToChoice()">🔙 Back</button>
   </div>
 
-  <div class="form-step hidden" id="sleepSection">
-    <h3>Sleep Cycle</h3>
-    <input type="number" id="sleep" placeholder="Hours of sleep">
-    <button onclick="checkSleep()">Check</button>
-    <p id="sleepResult"></p>
-    <button onclick="backToChoice()">Back</button>
+  <div class="card hidden" id="tempScreen">
+    <div class="emoji">🌡</div>
+    <h2>Temperature Checker</h2>
+    <input type="number" id="temp" placeholder="🌡 Temp (°C)" />
+    <button onclick="checkTemperature()">🔍 Check</button>
+    <h3 id="tempResult"></h3>
+    <button class="back-btn" onclick="backToChoice()">🔙 Back</button>
+  </div>
+
+  <div class="card hidden" id="sleepScreen">
+    <div class="emoji">🛏</div>
+    <h2>Sleep Time Calculator</h2>
+    <input type="time" id="wakeTime" />
+    <button onclick="calculateSleep()">🕒 Best Sleep Times</button>
+    <h3 id="sleepResult"></h3>
+    <button class="back-btn" onclick="backToChoice()">🔙 Back</button>
+  </div>
+
+  <div class="card hidden" id="waterScreen">
+    <div class="emoji">💧</div>
+    <h2>Water Intake Guide</h2>
+    <input type="number" id="userWeight" placeholder="⚖ Enter Weight (kg)" />
+    <button onclick="calculateWater()">💦 Recommend</button>
+    <h3 id="waterResult"></h3>
+    <button class="back-btn" onclick="backToChoice()">🔙 Back</button>
   </div>
 
   <script>
-    let userName = "";
-    let userGender = "";
-
-    function checkInputs() {
-      const nameInput = document.getElementById("username");
-      const nextBtn = document.getElementById("next-btn");
-
-      if (nameInput.value.trim() && userGender) {
-        nextBtn.disabled = false;
-        nameInput.classList.remove("error");
-      } else {
-        nextBtn.disabled = true;
-        if (!nameInput.value.trim()) {
-          nameInput.classList.add("error");
-        } else {
-          nameInput.classList.remove("error");
-        }
-      }
-    }
+    let userName = "", userGender = "";
 
     function selectGender(gender) {
       userGender = gender;
+      document.querySelectorAll('.gender-btn').forEach(btn => {
+        btn.classList.remove('selected');
+        if (btn.textContent.includes(gender)) btn.classList.add('selected');
+      });
       checkInputs();
     }
 
+    function checkInputs() {
+      const name = document.getElementById("username").value.trim();
+      document.getElementById("next-btn").disabled = !(name && userGender);
+    }
+
     function goToChoice() {
-      const nameInput = document.getElementById("username");
+      const nameInput = document.getElementById("username").value.trim();
       const errorBox = document.getElementById("inputError");
-      let hasError = false;
 
-      if (!nameInput.value.trim()) {
-        nameInput.classList.add("error");
-        nameInput.classList.add("shake");
-        hasError = true;
-      }
-
-      if (!userGender) {
-        errorBox.textContent = "Please select your gender.";
-        hasError = true;
-      } else {
-        errorBox.textContent = "";
-      }
-
-      if (hasError) {
-        setTimeout(() => nameInput.classList.remove("shake"), 400);
+      if (!nameInput || !userGender) {
+        let message = "Please enter your name and select your gender.";
+        if (!nameInput && userGender) message = "Please enter your name.";
+        else if (nameInput && !userGender) message = "Please select your gender.";
+        errorBox.textContent = message;
         return;
       }
 
+      // Clear error and move forward
       errorBox.textContent = "";
-      userName = nameInput.value.trim();
+      userName = nameInput;
       document.getElementById("step1").classList.add("hidden");
       document.getElementById("step2").classList.remove("hidden");
       document.getElementById("greeting").textContent = `Hi, ${userName}! 👋`;
       displayDailyTip();
     }
 
+    function backToName() {
+      document.getElementById("step2").classList.add("hidden");
+      document.getElementById("step1").classList.remove("hidden");
+      document.getElementById("username").value = "";
+      document.getElementById("inputError").textContent = "";
+      userGender = "";
+      checkInputs();
+      document.querySelectorAll('.gender-btn').forEach(btn => btn.classList.remove('selected'));
+    }
+
     function backToChoice() {
-      document.querySelectorAll('.form-step').forEach(step => step.classList.add('hidden'));
+      ["ageScreen", "bmiScreen", "pulseScreen", "tempScreen", "sleepScreen", "waterScreen"].forEach(id => document.getElementById(id).classList.add("hidden"));
       document.getElementById("step2").classList.remove("hidden");
+      ["ageResult", "bmiResult", "bmiStatus", "pulseResult", "tempResult", "sleepResult", "waterResult"].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = "";
+      });
     }
 
-    function goToBMI() {
+    function toggleScreen(id) {
       document.getElementById("step2").classList.add("hidden");
-      document.getElementById("bmiSection").classList.remove("hidden");
+      document.getElementById(id).classList.remove("hidden");
     }
 
-    function goToPulse() {
-      document.getElementById("step2").classList.add("hidden");
-      document.getElementById("pulseSection").classList.remove("hidden");
-    }
+    function showAge() { toggleScreen("ageScreen"); }
+    function showBMI() { toggleScreen("bmiScreen"); }
+    function showPulse() { toggleScreen("pulseScreen"); }
+    function showTemperature() { toggleScreen("tempScreen"); }
+    function showSleep() { toggleScreen("sleepScreen"); }
+    function showWater() { toggleScreen("waterScreen"); }
 
-    function goToTemp() {
-      document.getElementById("step2").classList.add("hidden");
-      document.getElementById("tempSection").classList.remove("hidden");
-    }
-
-    function goToSleep() {
-      document.getElementById("step2").classList.add("hidden");
-      document.getElementById("sleepSection").classList.remove("hidden");
+    function calculateAge() {
+      const birthdate = new Date(document.getElementById("birthdate").value);
+      if (!birthdate || isNaN(birthdate)) return alert("Enter valid birthdate");
+      const today = new Date();
+      let years = today.getFullYear() - birthdate.getFullYear();
+      let months = today.getMonth() - birthdate.getMonth();
+      let days = today.getDate() - birthdate.getDate();
+      if (days < 0) { months--; days += new Date(today.getFullYear(), today.getMonth(), 0).getDate(); }
+      if (months < 0) { years--; months += 12; }
+      document.getElementById("ageResult").textContent = `${userName}, you are ${years}y ${months}m ${days}d old.`;
     }
 
     function calculateBMI() {
-      const heightInput = document.getElementById("height");
-      const weightInput = document.getElementById("weight");
-      const h = parseFloat(heightInput.value);
-      const w = parseFloat(weightInput.value);
-
-      heightInput.classList.remove("error");
-      weightInput.classList.remove("error");
-
-      if (!h || h <= 0) heightInput.classList.add("error");
-      if (!w || w <= 0) weightInput.classList.add("error");
-      if (!h || !w || h <= 0 || w <= 0) {
-        alert("Invalid height or weight");
-        return;
-      }
-
+      const h = parseFloat(document.getElementById("height").value);
+      const w = parseFloat(document.getElementById("weight").value);
+      if (!h || !w || h <= 0 || w <= 0) return alert("Invalid height or weight");
       const bmi = (w / ((h / 100) ** 2)).toFixed(1);
       let status = bmi < 18.5 ? "Underweight" : bmi < 25 ? "Normal" : bmi < 30 ? "Overweight" : "Obese";
       document.getElementById("bmiResult").textContent = `${userName}, your BMI is ${bmi}`;
@@ -204,60 +272,63 @@
     }
 
     function checkPulse() {
-      const pulse = parseInt(document.getElementById("pulse").value);
-      const result = document.getElementById("pulseResult");
-      if (isNaN(pulse) || pulse <= 0) {
-        result.textContent = "Please enter a valid number.";
-        return;
-      }
-      const bpm = pulse * 4;
-      result.textContent = `${userName}, your heart rate is ${bpm} bpm.`;
+      const bpm = parseInt(document.getElementById("pulse").value);
+      if (!bpm || bpm <= 0) return alert("Enter valid BPM");
+      let result = bpm < 60 ? "Bradycardia (slow)" : bpm <= 100 ? "Normal" : "Tachycardia (fast)";
+      document.getElementById("pulseResult").textContent = `${userName}, your heart rate: ${bpm} bpm — ${result}`;
     }
 
-    function checkTemp() {
+    function checkTemperature() {
       const temp = parseFloat(document.getElementById("temp").value);
-      const result = document.getElementById("tempResult");
-      if (isNaN(temp)) {
-        result.textContent = "Please enter a valid temperature.";
-        return;
-      }
-      if (temp < 36) {
-        result.textContent = "Low body temperature.";
-      } else if (temp > 37.5) {
-        result.textContent = "High body temperature.";
-      } else {
-        result.textContent = "Normal body temperature.";
-      }
+      if (!temp || temp <= 0) return alert("Enter valid temperature");
+      let result = temp < 36 ? "Low body temp" : temp <= 37.5 ? "Normal" : "Possible fever";
+      document.getElementById("tempResult").textContent = `${userName}, your temp is ${temp}°C — ${result}`;
     }
 
-    function checkSleep() {
-      const sleep = parseFloat(document.getElementById("sleep").value);
-      const result = document.getElementById("sleepResult");
-      if (isNaN(sleep)) {
-        result.textContent = "Please enter your hours of sleep.";
-        return;
+    function calculateSleep() {
+      const time = document.getElementById("wakeTime").value;
+      if (!time) return alert("Please select your wake-up time.");
+      const [h, m] = time.split(":").map(Number);
+      const wakeUp = new Date();
+      wakeUp.setHours(h, m, 0, 0);
+      let sleepCycles = [];
+      for (let i = 6; i >= 3; i--) {
+        let sleepTime = new Date(wakeUp.getTime() - i * 90 * 60 * 1000 - 15 * 60 * 1000);
+        sleepCycles.push(`${sleepTime.getHours().toString().padStart(2, '0')}:${sleepTime.getMinutes().toString().padStart(2, '0')}`);
       }
-      if (sleep < 6) {
-        result.textContent = "You need more sleep.";
-      } else if (sleep > 9) {
-        result.textContent = "You may be oversleeping.";
-      } else {
-        result.textContent = "You have a healthy sleep duration.";
-      }
+      document.getElementById("sleepResult").textContent = `Best sleep times: ${sleepCycles.join(", ")}`;
+    }
+
+    function calculateWater() {
+      const weight = parseFloat(document.getElementById("userWeight").value);
+      if (!weight || weight <= 0) return alert("Enter valid weight");
+      const water = (weight * 0.033).toFixed(2);
+      document.getElementById("waterResult").textContent = `${userName}, you need approx. ${water} liters/day 💧`;
+    }
+
+    function showMotivation() {
+      const quotes = [
+        "💪 Keep pushing forward!",
+        "🧘 Breathe. Relax. Recharge.",
+        "🌱 One step at a time.",
+        "💡 Health is wealth.",
+        "🎯 You are doing great!"
+      ];
+      const quote = quotes[Math.floor(Math.random() * quotes.length)];
+      alert(`${userName}, here's your motivation: ${quote}`);
     }
 
     function displayDailyTip() {
       const tips = [
-        "Drink plenty of water.",
-        "Get at least 8 hours of sleep.",
-        "Exercise regularly.",
-        "Eat more fruits and vegetables.",
-        "Take short breaks during work."
+        "🚶 Take a 10-min walk every 2 hours.",
+        "🍎 Add fruits to your snacks.",
+        "💧 Stay hydrated today.",
+        "📵 Take screen breaks every hour.",
+        "🧘 Try 2-min breathing exercise now."
       ];
-      const tip = tips[Math.floor(Math.random() * tips.length)];
-      document.getElementById("dailyTip").textContent = `💡 Daily Tip: ${tip}`;
+      const tip = tips[new Date().getDay() % tips.length];
+      document.getElementById("dailyTipBox").textContent = `🧠 Today's Tip: ${tip}`;
     }
   </script>
 </body>
-
 </html>
