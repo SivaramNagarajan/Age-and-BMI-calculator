@@ -42,7 +42,6 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        /* Welcome Page Styles */
         .welcome-container {
             display: flex;
             flex-direction: column;
@@ -118,7 +117,6 @@
         .btn-success:hover {
             background-color: #45a049;
         }
-        /* Dashboard Styles */
         .dashboard-header {
             display: flex;
             justify-content: space-between;
@@ -192,7 +190,6 @@
             font-weight: 600;
             color: #555;
         }
-        /* Personal Info Page Styles */
         .personal-info-container {
             background-color: white;
             border-radius: 12px;
@@ -320,7 +317,6 @@
             background-color: #fff3cd;
             color: #856404;
         }
-        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -369,7 +365,6 @@
         .close-btn:hover {
             color: var(--dark-color);
         }
-        /* Calculator Styles */
         .calculator-container {
             background-color: white;
             border-radius: 12px;
@@ -387,7 +382,6 @@
             font-weight: 600;
             font-size: 1.2rem;
         }
-        /* Share Modal Styles */
         .share-code {
             background-color: #f8f9fa;
             border-radius: 8px;
@@ -409,7 +403,6 @@
             justify-content: center;
             gap: 10px;
         }
-        /* Notification Styles */
         .notification {
             position: fixed;
             bottom: 20px;
@@ -422,7 +415,6 @@
             z-index: 2000;
             animation: fadeIn 0.3s ease-in-out;
         }
-        /* Doctor Access Styles */
         .doctor-access-container {
             background-color: white;
             border-radius: 12px;
@@ -446,33 +438,26 @@
             color: #666;
             margin-bottom: 30px;
         }
-        /* Responsive Styles */
         @media (max-width: 768px) {
             .dashboard-grid {
                 grid-template-columns: 1fr;
             }
-           
             .quote-card {
                 grid-column: span 1;
             }
-           
             .info-grid {
                 grid-template-columns: 1fr;
             }
-           
             .upload-grid {
                 grid-template-columns: 1fr;
             }
-           
             .analysis-grid {
                 grid-template-columns: 1fr;
             }
-           
             .section-actions {
                 flex-direction: column;
                 width: 100%;
             }
-           
             .section-actions .btn {
                 width: 100%;
             }
@@ -480,17 +465,14 @@
     </style>
 </head>
 <body>
-    <!-- Welcome Page -->
     <div id="welcome-page" class="page active">
         <div class="welcome-container">
             <h1 class="welcome-title">Personal Health Dashboard</h1>
             <p style="margin-bottom: 30px; max-width: 500px;">Welcome to your personal health management system. Please provide your information to get started.</p>
-           
             <div class="form-group">
                 <label for="user-name">Your Name</label>
                 <input type="text" id="user-name" placeholder="Enter your full name" required>
             </div>
-           
             <div class="form-group">
                 <label for="user-gender">Gender</label>
                 <select id="user-gender" required>
@@ -500,15 +482,12 @@
                     <option value="other">Other</option>
                 </select>
             </div>
-           
             <button id="welcome-next-btn" class="btn">Next <i class="fas fa-arrow-right"></i></button>
-           
             <div style="margin-top: 30px;">
                 <button id="doctor-access-btn" class="btn btn-secondary"><i class="fas fa-user-md"></i> Doctor Access</button>
             </div>
         </div>
     </div>
-    <!-- Dashboard Page -->
     <div id="dashboard-page" class="page">
         <div class="container">
             <div class="dashboard-header">
@@ -518,56 +497,47 @@
                     <span id="display-name">User</span>
                 </div>
             </div>
-           
             <div class="dashboard-grid">
                 <div class="card" id="personal-info-card">
                     <div class="card-icon"><i class="fas fa-user-lock"></i></div>
                     <h3 class="card-title">Personal Info</h3>
                     <p class="card-description">View and manage your personal health information</p>
                 </div>
-               
                 <div class="card" id="doctor-view-card">
                     <div class="card-icon"><i class="fas fa-user-md"></i></div>
                     <h3 class="card-title">Doctor View</h3>
                     <p class="card-description">Access patient information using a share code</p>
                 </div>
-               
                 <div class="card" id="age-calculator-card">
                     <div class="card-icon"><i class="fas fa-calendar-alt"></i></div>
                     <h3 class="card-title">Age Calculator</h3>
                     <p class="card-description">Calculate your exact age in years, months, and days</p>
                 </div>
-               
                 <div class="card" id="bmi-calculator-card">
                     <div class="card-icon"><i class="fas fa-weight"></i></div>
                     <h3 class="card-title">BMI Calculator</h3>
                     <p class="card-description">Calculate your Body Mass Index</p>
                 </div>
-               
                 <div class="card" id="heart-rate-card">
                     <div class="card-icon"><i class="fas fa-heartbeat"></i></div>
                     <h3 class="card-title">Heart Rate Checker</h3>
                     <p class="card-description">Check and track your heart rate</p>
                 </div>
-               
                 <div class="card" id="temperature-card">
                     <div class="card-icon"><i class="fas fa-thermometer-half"></i></div>
                     <h3 class="card-title">Body Temperature</h3>
                     <p class="card-description">Record and monitor your body temperature</p>
                 </div>
-               
                 <div class="card" id="sleep-calculator-card">
                     <div class="card-icon"><i class="fas fa-bed"></i></div>
                     <h3 class="card-title">Sleep Time Calculator</h3>
                     <p class="card-description">Calculate optimal sleep and wake times</p>
                 </div>
-               
                 <div class="card" id="water-intake-card">
                     <div class="card-icon"><i class="fas fa-tint"></i></div>
                     <h3 class="card-title">Water Intake Calculator</h3>
                     <p class="card-description">Calculate your daily water intake needs</p>
                 </div>
-               
                 <div class="card quote-card">
                     <div class="card-icon"><i class="fas fa-quote-left"></i></div>
                     <p class="quote-text" id="motivational-quote">Loading quote...</p>
@@ -576,14 +546,12 @@
             </div>
         </div>
     </div>
-    <!-- Personal Info Page -->
     <div id="personal-info-page" class="page">
         <div class="container">
             <div class="dashboard-header">
                 <h1 class="dashboard-title">Personal Health Information</h1>
                 <button id="back-to-dashboard" class="btn"><i class="fas fa-arrow-left"></i> Back to Dashboard</button>
             </div>
-           
             <div class="personal-info-container">
                 <h2 class="section-title">
                     Personal Information
@@ -640,7 +608,6 @@
                         <div class="info-value" id="info-medical-history">-</div>
                     </div>
                 </div>
-               
                 <h2 class="section-title">Medical Certificates</h2>
                 <div class="upload-section">
                     <div class="upload-grid">
@@ -682,7 +649,6 @@
                         </div>
                     </div>
                 </div>
-               
                 <h2 class="section-title">Report Analysis</h2>
                 <div class="analysis-grid">
                     <div class="analysis-item">
@@ -709,82 +675,19 @@
             </div>
         </div>
     </div>
-    <!-- Doctor Access Page -->
     <div id="doctor-access-page" class="page">
         <div class="doctor-access-container">
             <div class="doctor-logo"><i class="fas fa-user-md"></i></div>
             <h1 class="doctor-title">Doctor Access</h1>
             <p class="doctor-subtitle">Enter the share code provided by the patient to view their health information.</p>
-           
             <div class="form-group">
                 <label for="share-code-input">Share Code</label>
                 <input type="text" id="share-code-input" placeholder="Enter 6-character code" maxlength="6">
             </div>
-           
             <button id="access-patient-btn" class="btn">Access Patient Information</button>
-            <div id="access-error" style="color: red; margin-top: 10px; display: none;">Invalid share code. Please try again.</div>
-           
-            <div style="margin-top: 30px;">
-                <button id="back-to-welcome" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to Welcome</button>
-            </div>
+            <div id="calculator-content"></div>
         </div>
     </div>
-    <!-- Doctor View Page -->
-    <div id="doctor-view-page" class="page">
-        <div class="container">
-            <div class="dashboard-header">
-                <h1 class="dashboard-title">Patient Health Information</h1>
-                <button id="back-to-doctor-access" class="btn"><i class="fas fa-arrow-left"></i> Back</button>
-            </div>
-           
-            <div id="doctor-info-container" class="personal-info-container">
-                <!-- Patient information will be loaded here -->
-            </div>
-        </div>
-    </div>
-    <!-- Password Modal -->
-    <div id="password-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Enter Password</h3>
-                <button class="close-btn" id="close-password-modal">&times;</button>
-            </div>
-            <div class="form-group">
-                <label for="password-input">Password</label>
-                <input type="password" id="password-input" placeholder="Enter your password">
-            </div>
-            <button id="verify-password-btn" class="btn">Verify</button>
-            <div id="password-error" style="color: red; margin-top: 10px; display: none;">Incorrect password. Please try again.</div>
-        </div>
-    </div>
-    <!-- Doctor View Modal -->
-    <div id="doctor-view-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Doctor Access</h3>
-                <button class="close-btn" id="close-doctor-modal">&times;</button>
-            </div>
-            <div class="form-group">
-                <label for="doctor-code-input">Share Code</label>
-                <input type="text" id="doctor-code-input" placeholder="Enter 6-character code" maxlength="6">
-            </div>
-            <button id="view-patient-btn" class="btn">View Patient Information</button>
-            <div id="doctor-code-error" style="color: red; margin-top: 10px; display: none;">Invalid share code. Please try again.</div>
-        </div>
-    </div>
-    <!-- Calculator Modal -->
-    <div id="calculator-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title" id="calculator-title">Calculator</h3>
-                <button class="close-btn" id="close-calculator-modal">&times;</button>
-            </div>
-            <div id="calculator-content">
-                <!-- Calculator content will be dynamically inserted here -->
-            </div>
-        </div>
-    </div>
-    <!-- Share Modal -->
     <div id="share-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -805,118 +708,139 @@
         </div>
     </div>
     <script>
-        // Initialize the application
+        const healthData = {};
+
         document.addEventListener('DOMContentLoaded', function() {
-            // Check if we are in doctor view mode
             checkDoctorView();
-           
-            // Check if user data exists in localStorage
-            const userData = JSON.parse(localStorage.getItem('healthDashboardUser')) || {};
-           
-            // If user data exists, go directly to dashboard
+            const userData = getUserData();
             if (userData.name && userData.gender) {
                 showDashboard();
             }
-           
-            // Set up event listeners
             setupEventListeners();
-           
-            // Load motivational quote
             loadMotivationalQuote();
         });
-       
-        // Check if we are in doctor view mode
+
+        function getUserData() {
+            const data = sessionStorage.getItem('healthDashboardUser');
+            return data ? JSON.parse(data) : {};
+        }
+
+        function saveUserData(data) {
+            sessionStorage.setItem('healthDashboardUser', JSON.stringify(data));
+        }
+
+        function getPersonalInfo() {
+            const data = sessionStorage.getItem('personalInfo');
+            return data ? JSON.parse(data) : {};
+        }
+
+        function savePersonalInfo(data) {
+            sessionStorage.setItem('personalInfo', JSON.stringify(data));
+        }
+
+        function getUploadedFiles() {
+            const data = sessionStorage.getItem('uploadedFiles');
+            return data ? JSON.parse(data) : {};
+        }
+
+        function saveUploadedFiles(data) {
+            sessionStorage.setItem('uploadedFiles', JSON.stringify(data));
+        }
+
+        function getAnalysisData() {
+            const data = sessionStorage.getItem('analysisData');
+            return data ? JSON.parse(data) : {};
+        }
+
+        function saveAnalysisData(data) {
+            sessionStorage.setItem('analysisData', JSON.stringify(data));
+        }
+
+        function getShareCode() {
+            return sessionStorage.getItem('healthShareCode');
+        }
+
+        function saveShareCode(code) {
+            sessionStorage.setItem('healthShareCode', code);
+        }
+
+        function getSharedData(code) {
+            const data = sessionStorage.getItem(`sharedData_${code}`);
+            return data ? JSON.parse(data) : null;
+        }
+
+        function saveSharedData(code, data) {
+            sessionStorage.setItem(`sharedData_${code}`, JSON.stringify(data));
+        }
+
         function checkDoctorView() {
-            // Check URL parameter for doctor view
             const urlParams = new URLSearchParams(window.location.search);
             const view = urlParams.get('view');
-           
             if (view === 'doctor') {
                 showPage('doctor-access-page');
             }
         }
-        // Set up all event listeners
+
         function setupEventListeners() {
-            // Welcome page next button
             document.getElementById('welcome-next-btn').addEventListener('click', function() {
                 const name = document.getElementById('user-name').value.trim();
                 const gender = document.getElementById('user-gender').value;
-               
                 if (name && gender) {
-                    // Save user data to localStorage
-                    const userData = {
-                        name: name,
-                        gender: gender
-                    };
-                    localStorage.setItem('healthDashboardUser', JSON.stringify(userData));
-                   
-                    // Show dashboard
+                    const userData = { name: name, gender: gender };
+                    saveUserData(userData);
                     showDashboard();
                 } else {
                     alert('Please enter your name and select your gender.');
                 }
             });
-           
-            // Doctor access button
+
             document.getElementById('doctor-access-btn').addEventListener('click', function() {
                 showPage('doctor-access-page');
             });
-           
-            // Dashboard cards
+
             document.getElementById('personal-info-card').addEventListener('click', function() {
                 document.getElementById('password-modal').classList.add('active');
             });
-           
-            // Doctor view card
+
             document.getElementById('doctor-view-card').addEventListener('click', function() {
                 document.getElementById('doctor-view-modal').classList.add('active');
             });
-           
+
             document.getElementById('age-calculator-card').addEventListener('click', function() {
                 showCalculator('age');
             });
-           
+
             document.getElementById('bmi-calculator-card').addEventListener('click', function() {
                 showCalculator('bmi');
             });
-           
+
             document.getElementById('heart-rate-card').addEventListener('click', function() {
                 showCalculator('heart-rate');
             });
-           
+
             document.getElementById('temperature-card').addEventListener('click', function() {
                 showCalculator('temperature');
             });
-           
+
             document.getElementById('sleep-calculator-card').addEventListener('click', function() {
                 showCalculator('sleep');
             });
-           
+
             document.getElementById('water-intake-card').addEventListener('click', function() {
                 showCalculator('water');
             });
-           
-            // Password modal
+
             document.getElementById('verify-password-btn').addEventListener('click', verifyPassword);
             document.getElementById('close-password-modal').addEventListener('click', function() {
                 document.getElementById('password-modal').classList.remove('active');
             });
-           
-            // Doctor view modal
+
             document.getElementById('view-patient-btn').addEventListener('click', function() {
                 const shareCode = document.getElementById('doctor-code-input').value.trim().toUpperCase();
-               
                 if (shareCode.length === 6) {
-                    const sharedData = localStorage.getItem(`sharedData_${shareCode}`);
-                   
+                    const sharedData = getSharedData(shareCode);
                     if (sharedData) {
-                        // Parse the shared data
-                        const data = JSON.parse(sharedData);
-                       
-                        // Display the patient information
-                        displayDoctorView(data);
-                       
-                        // Close modal
+                        displayDoctorView(sharedData);
                         document.getElementById('doctor-view-modal').classList.remove('active');
                         document.getElementById('doctor-code-input').value = '';
                         document.getElementById('doctor-code-error').style.display = 'none';
@@ -927,70 +851,55 @@
                     document.getElementById('doctor-code-error').style.display = 'block';
                 }
             });
-           
+
             document.getElementById('close-doctor-modal').addEventListener('click', function() {
                 document.getElementById('doctor-view-modal').classList.remove('active');
                 document.getElementById('doctor-code-input').value = '';
                 document.getElementById('doctor-code-error').style.display = 'none';
             });
-           
-            // Calculator modal
+
             document.getElementById('close-calculator-modal').addEventListener('click', function() {
                 document.getElementById('calculator-modal').classList.remove('active');
             });
-           
-            // Back to dashboard button
+
             document.getElementById('back-to-dashboard').addEventListener('click', function() {
                 showPage('dashboard-page');
             });
-           
-            // Edit/Save/Cancel buttons
+
             document.getElementById('edit-info-btn').addEventListener('click', enableEditMode);
-            document.getElementById('save-info-btn').addEventListener('click', savePersonalInfo);
+            document.getElementById('save-info-btn').addEventListener('click', savePersonalInfoData);
             document.getElementById('cancel-edit-btn').addEventListener('click', cancelEditMode);
-           
-            // Share button
             document.getElementById('share-info-btn').addEventListener('click', showShareModal);
-           
-            // Share modal
+
             document.getElementById('close-share-modal').addEventListener('click', function() {
                 document.getElementById('share-modal').classList.remove('active');
             });
-           
+
             document.getElementById('copy-code-btn').addEventListener('click', copyShareCode);
             document.getElementById('generate-new-code-btn').addEventListener('click', generateNewShareCode);
-           
-            // Doctor access
+
             document.getElementById('access-patient-btn').addEventListener('click', accessPatientInfo);
             document.getElementById('back-to-doctor-access').addEventListener('click', function() {
                 showPage('doctor-access-page');
                 document.getElementById('share-code-input').value = '';
                 document.getElementById('access-error').style.display = 'none';
             });
-           
+
             document.getElementById('back-to-welcome').addEventListener('click', function() {
                 showPage('welcome-page');
                 document.getElementById('share-code-input').value = '';
                 document.getElementById('access-error').style.display = 'none';
             });
-           
-            // File upload handlers
+
             setupFileUploadHandlers();
         }
-       
-        // Access patient information
+
         function accessPatientInfo() {
             const shareCode = document.getElementById('share-code-input').value.trim().toUpperCase();
-           
             if (shareCode.length === 6) {
-                const sharedData = localStorage.getItem(`sharedData_${shareCode}`);
-               
+                const sharedData = getSharedData(shareCode);
                 if (sharedData) {
-                    // Parse the shared data
-                    const data = JSON.parse(sharedData);
-                   
-                    // Display the patient information
-                    displayDoctorView(data);
+                    displayDoctorView(sharedData);
                 } else {
                     document.getElementById('access-error').style.display = 'block';
                 }
@@ -998,15 +907,11 @@
                 document.getElementById('access-error').style.display = 'block';
             }
         }
-       
-        // Display the doctor view with patient data
+
         function displayDoctorView(data) {
             const container = document.getElementById('doctor-info-container');
-           
-            // Clear the container
             container.innerHTML = '';
-           
-            // Create patient information section
+
             const patientInfoSection = document.createElement('div');
             patientInfoSection.innerHTML = `
                 <h2 class="section-title">Patient Information</h2>
@@ -1057,10 +962,9 @@
                     </div>
                 </div>
             `;
-           
+
             container.appendChild(patientInfoSection);
-           
-            // Create medical certificates section
+
             const certificatesSection = document.createElement('div');
             certificatesSection.innerHTML = `
                 <h2 class="section-title">Medical Certificates</h2>
@@ -1074,10 +978,9 @@
                     `).join('')}
                 </div>
             `;
-           
+
             container.appendChild(certificatesSection);
-           
-            // Create report analysis section
+
             const analysisSection = document.createElement('div');
             analysisSection.innerHTML = `
                 <h2 class="section-title">Report Analysis</h2>
@@ -1104,10 +1007,9 @@
                     </div>
                 </div>
             `;
-           
+
             container.appendChild(analysisSection);
-           
-            // Add timestamp information
+
             const timestampSection = document.createElement('div');
             timestampSection.style.marginTop = '20px';
             timestampSection.style.textAlign = 'center';
@@ -1115,71 +1017,50 @@
             timestampSection.style.fontSize = '0.9rem';
             timestampSection.innerHTML = `Information shared on: ${new Date(data.timestamp).toLocaleString()}`;
             container.appendChild(timestampSection);
-           
-            // Show the doctor view page
+
             showPage('doctor-view-page');
         }
-        // Show dashboard page
+
         function showDashboard() {
-            const userData = JSON.parse(localStorage.getItem('healthDashboardUser')) || {};
-           
-            // Update user info in dashboard
+            const userData = getUserData();
             document.getElementById('display-name').textContent = userData.name;
             document.getElementById('user-avatar').textContent = userData.name.charAt(0).toUpperCase();
-           
-            // Show dashboard page
             showPage('dashboard-page');
         }
-        // Show specific page
+
         function showPage(pageId) {
-            // Hide all pages
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
-           
-            // Show selected page
             document.getElementById(pageId).classList.add('active');
         }
-        // Verify password for personal info
+
         function verifyPassword() {
             const password = document.getElementById('password-input').value;
             const correctPassword = 'health123';
-           
             if (password === correctPassword) {
-                // Close modal
                 document.getElementById('password-modal').classList.remove('active');
-               
-                // Show personal info page
                 showPersonalInfoPage();
-               
-                // Clear password field
                 document.getElementById('password-input').value = '';
                 document.getElementById('password-error').style.display = 'none';
             } else {
-                // Show error
                 document.getElementById('password-error').style.display = 'block';
             }
         }
-        // Show personal info page
+
         function showPersonalInfoPage() {
-            // Load personal info data
             loadPersonalInfoData();
-           
-            // Show personal info page
             showPage('personal-info-page');
         }
-        // Load personal info data
+
         function loadPersonalInfoData() {
-            // Get user data from localStorage
-            const userData = JSON.parse(localStorage.getItem('healthDashboardUser')) || {};
-            const personalInfo = JSON.parse(localStorage.getItem('personalInfo')) || {};
-           
-            // Update display with user data
+            const userData = getUserData();
+            const personalInfo = getPersonalInfo();
+
             document.getElementById('info-name').textContent = userData.name || '-';
             document.getElementById('info-gender').textContent = userData.gender ?
                 userData.gender.charAt(0).toUpperCase() + userData.gender.slice(1) : '-';
-           
-            // Update display with personal info data
+
             document.getElementById('info-dob').textContent = personalInfo.dob || '-';
             document.getElementById('info-blood-group').textContent = personalInfo.bloodGroup || '-';
             document.getElementById('info-height').textContent = personalInfo.height || '-';
@@ -1189,15 +1070,12 @@
             document.getElementById('info-email').textContent = personalInfo.email || '-';
             document.getElementById('info-medications').textContent = personalInfo.medications || '-';
             document.getElementById('info-medical-history').textContent = personalInfo.medicalHistory || '-';
-           
-            // Load uploaded files
+
             loadUploadedFiles();
         }
-        // Load uploaded files
+
         function loadUploadedFiles() {
-            const uploadedFiles = JSON.parse(localStorage.getItem('uploadedFiles')) || {};
-           
-            // Update file display
+            const uploadedFiles = getUploadedFiles();
             Object.keys(uploadedFiles).forEach(fileType => {
                 const fileElement = document.getElementById(`${fileType}-file`);
                 if (fileElement && uploadedFiles[fileType]) {
@@ -1205,52 +1083,42 @@
                 }
             });
         }
-        // Set up file upload handlers
+
         function setupFileUploadHandlers() {
             const uploadItems = document.querySelectorAll('.upload-item');
-           
             uploadItems.forEach(item => {
                 const uploadType = item.getAttribute('data-upload-type');
                 const fileInput = document.getElementById(`${uploadType}-input`);
-               
                 item.addEventListener('click', function() {
                     fileInput.click();
                 });
-               
                 fileInput.addEventListener('change', function(e) {
                     const file = e.target.files[0];
                     if (file) {
-                        // Save file info to localStorage
-                        const uploadedFiles = JSON.parse(localStorage.getItem('uploadedFiles')) || {};
+                        const uploadedFiles = getUploadedFiles();
                         uploadedFiles[uploadType] = {
                             name: file.name,
                             size: file.size,
                             type: file.type
                         };
-                        localStorage.setItem('uploadedFiles', JSON.stringify(uploadedFiles));
-                       
-                        // Update display
+                        saveUploadedFiles(uploadedFiles);
                         document.getElementById(`${uploadType}-file`).textContent = file.name;
                     }
                 });
             });
         }
-        // Enable edit mode for personal info
+
         function enableEditMode() {
-            // Hide edit button and show save/cancel buttons
             document.getElementById('edit-info-btn').style.display = 'none';
             document.getElementById('save-info-btn').style.display = 'inline-block';
             document.getElementById('cancel-edit-btn').style.display = 'inline-block';
-           
-            // Convert info values to input fields
+
             const infoItems = document.querySelectorAll('.info-value');
             infoItems.forEach(item => {
                 const currentValue = item.textContent.trim();
                 const itemId = item.id;
-               
-                // Create appropriate input based on field type
                 let inputElement;
-               
+
                 if (itemId === 'info-gender') {
                     inputElement = document.createElement('select');
                     inputElement.innerHTML = `
@@ -1271,25 +1139,21 @@
                     inputElement.type = 'text';
                     inputElement.value = currentValue === '-' ? '' : currentValue;
                 }
-               
-                // Clear the current content and add the input
+
                 item.innerHTML = '';
                 item.appendChild(inputElement);
                 item.classList.add('editing');
             });
         }
-        // Save personal info
-        function savePersonalInfo() {
+
+        function savePersonalInfoData() {
             const personalInfo = {};
-           
-            // Get values from input fields
             const infoItems = document.querySelectorAll('.info-value.editing');
             infoItems.forEach(item => {
                 const input = item.querySelector('input, select, textarea');
                 const itemId = item.id;
                 const value = input.value.trim();
-               
-                // Map item ID to personalInfo key
+
                 if (itemId === 'info-name') personalInfo.name = value;
                 else if (itemId === 'info-dob') personalInfo.dob = value;
                 else if (itemId === 'info-gender') personalInfo.gender = value;
@@ -1302,64 +1166,44 @@
                 else if (itemId === 'info-medications') personalInfo.medications = value;
                 else if (itemId === 'info-medical-history') personalInfo.medicalHistory = value;
             });
-           
-            // Save to localStorage
-            localStorage.setItem('personalInfo', JSON.stringify(personalInfo));
-           
-            // Update user data if name or gender changed
-            const userData = JSON.parse(localStorage.getItem('healthDashboardUser')) || {};
+
+            savePersonalInfo(personalInfo);
+
+            const userData = getUserData();
             if (personalInfo.name) userData.name = personalInfo.name;
             if (personalInfo.gender) userData.gender = personalInfo.gender;
-            localStorage.setItem('healthDashboardUser', JSON.stringify(userData));
-           
-            // Reload the personal info data
+            saveUserData(userData);
+
             loadPersonalInfoData();
-           
-            // Exit edit mode
             exitEditMode();
-           
-            // Show success message
             showNotification('Personal information saved successfully!');
         }
-        // Cancel edit mode
+
         function cancelEditMode() {
-            // Reload the personal info data to discard changes
             loadPersonalInfoData();
-           
-            // Exit edit mode
             exitEditMode();
         }
-        // Exit edit mode
+
         function exitEditMode() {
-            // Show edit button and hide save/cancel buttons
             document.getElementById('edit-info-btn').style.display = 'inline-block';
             document.getElementById('save-info-btn').style.display = 'none';
             document.getElementById('cancel-edit-btn').style.display = 'none';
-           
-            // Remove editing class from all info items
             document.querySelectorAll('.info-value').forEach(item => {
                 item.classList.remove('editing');
             });
         }
-        // Show share modal
+
         function showShareModal() {
-            // Generate or retrieve share code
-            let shareCode = localStorage.getItem('healthShareCode');
+            let shareCode = getShareCode();
             if (!shareCode) {
                 shareCode = generateShareCode();
-                localStorage.setItem('healthShareCode', shareCode);
+                saveShareCode(shareCode);
             }
-           
-            // Display the share code
             document.getElementById('share-code').textContent = shareCode;
-           
-            // Show the modal
             document.getElementById('share-modal').classList.add('active');
-           
-            // Save current data for sharing
             saveDataForSharing();
         }
-        // Generate share code
+
         function generateShareCode() {
             const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
             let result = '';
@@ -1368,30 +1212,24 @@
             }
             return result;
         }
-        // Generate new share code
+
         function generateNewShareCode() {
             const newCode = generateShareCode();
-            localStorage.setItem('healthShareCode', newCode);
+            saveShareCode(newCode);
             document.getElementById('share-code').textContent = newCode;
-           
-            // Save data with new code
             saveDataForSharing();
-           
-            // Show notification
             showNotification('New share code generated!');
         }
-        // Save data for sharing
+
         function saveDataForSharing() {
-            const shareCode = localStorage.getItem('healthShareCode');
+            const shareCode = getShareCode();
             if (!shareCode) return;
-           
-            // Get user data and personal info
-            const userData = JSON.parse(localStorage.getItem('healthDashboardUser')) || {};
-            const personalInfo = JSON.parse(localStorage.getItem('personalInfo')) || {};
-            const uploadedFiles = JSON.parse(localStorage.getItem('uploadedFiles')) || {};
-            const analysisData = JSON.parse(localStorage.getItem('analysisData')) || {};
-           
-            // Combine all data
+
+            const userData = getUserData();
+            const personalInfo = getPersonalInfo();
+            const uploadedFiles = getUploadedFiles();
+            const analysisData = getAnalysisData();
+
             const sharedData = {
                 userData,
                 personalInfo,
@@ -1399,42 +1237,31 @@
                 analysisData,
                 timestamp: new Date().toISOString()
             };
-           
-            // Save with share code as key
-            localStorage.setItem(`sharedData_${shareCode}`, JSON.stringify(sharedData));
+
+            saveSharedData(shareCode, sharedData);
         }
-        // Copy share code to clipboard
+
         function copyShareCode() {
             const shareCode = document.getElementById('share-code').textContent;
-           
-            // Create a temporary input element to copy to clipboard
             const tempInput = document.createElement('input');
             tempInput.value = shareCode;
             document.body.appendChild(tempInput);
             tempInput.select();
             document.execCommand('copy');
             document.body.removeChild(tempInput);
-           
-            // Show success message
+
             const copySuccess = document.getElementById('copy-success');
             copySuccess.style.display = 'block';
-           
-            // Hide after 3 seconds
             setTimeout(() => {
                 copySuccess.style.display = 'none';
             }, 3000);
         }
-        // Show notification
+
         function showNotification(message) {
-            // Create notification element
             const notification = document.createElement('div');
             notification.className = 'notification';
             notification.textContent = message;
-           
-            // Add to body
             document.body.appendChild(notification);
-           
-            // Remove after 3 seconds
             setTimeout(() => {
                 notification.style.opacity = '0';
                 setTimeout(() => {
@@ -1442,16 +1269,13 @@
                 }, 300);
             }, 3000);
         }
-        // Show calculator
+
         function showCalculator(type) {
             const modal = document.getElementById('calculator-modal');
             const title = document.getElementById('calculator-title');
             const content = document.getElementById('calculator-content');
-           
-            // Clear previous content
             content.innerHTML = '';
-           
-            // Set title based on calculator type
+
             switch(type) {
                 case 'age':
                     title.textContent = 'Age Calculator';
@@ -1484,11 +1308,10 @@
                     setupWaterIntakeCalculator();
                     break;
             }
-           
-            // Show modal
+
             modal.classList.add('active');
         }
-        // Age Calculator HTML
+
         function getAgeCalculatorHTML() {
             return `
                 <div class="form-group">
@@ -1499,42 +1322,38 @@
                 <div id="age-result" class="calculator-result" style="display: none;"></div>
             `;
         }
-        // Setup Age Calculator
+
         function setupAgeCalculator() {
             document.getElementById('calculate-age-btn').addEventListener('click', function() {
                 const birthDate = document.getElementById('birth-date').value;
-               
                 if (birthDate) {
                     const birth = new Date(birthDate);
                     const today = new Date();
-                   
                     let years = today.getFullYear() - birth.getFullYear();
                     let months = today.getMonth() - birth.getMonth();
                     let days = today.getDate() - birth.getDate();
-                   
+
                     if (days < 0) {
                         months--;
                         const lastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
                         days += lastMonth.getDate();
                     }
-                   
+
                     if (months < 0) {
                         years--;
                         months += 12;
                     }
-                   
+
                     const result = `You are ${years} years, ${months} months, and ${days} days old.`;
                     document.getElementById('age-result').textContent = result;
                     document.getElementById('age-result').style.display = 'block';
-                   
-                    // Save to personal info
                     saveToPersonalInfo('dob', birthDate);
                 } else {
                     alert('Please enter your date of birth.');
                 }
             });
         }
-        // BMI Calculator HTML
+
         function getBMICalculatorHTML() {
             return `
                 <div class="form-group">
@@ -1549,16 +1368,14 @@
                 <div id="bmi-result" class="calculator-result" style="display: none;"></div>
             `;
         }
-        // Setup BMI Calculator
+
         function setupBMICalculator() {
             document.getElementById('calculate-bmi-btn').addEventListener('click', function() {
                 const weight = parseFloat(document.getElementById('weight').value);
-                const height = parseFloat(document.getElementById('height').value) / 100; // Convert cm to m
-               
+                const height = parseFloat(document.getElementById('height').value) / 100;
                 if (weight > 0 && height > 0) {
                     const bmi = weight / (height * height);
                     let category = '';
-                   
                     if (bmi < 18.5) {
                         category = 'Underweight';
                     } else if (bmi < 25) {
@@ -1568,12 +1385,9 @@
                     } else {
                         category = 'Obese';
                     }
-                   
                     const result = `Your BMI is ${bmi.toFixed(1)} (${category})`;
                     document.getElementById('bmi-result').textContent = result;
                     document.getElementById('bmi-result').style.display = 'block';
-                   
-                    // Save to personal info if available
                     saveToPersonalInfo('weight', `${weight} kg`);
                     saveToPersonalInfo('height', `${height * 100} cm`);
                 } else {
@@ -1581,7 +1395,7 @@
                 }
             });
         }
-        // Heart Rate Checker HTML
+
         function getHeartRateCheckerHTML() {
             return `
                 <div class="form-group">
@@ -1592,14 +1406,12 @@
                 <div id="heart-rate-result" class="calculator-result" style="display: none;"></div>
             `;
         }
-        // Setup Heart Rate Checker
+
         function setupHeartRateChecker() {
             document.getElementById('check-heart-rate-btn').addEventListener('click', function() {
                 const heartRate = parseInt(document.getElementById('heart-rate').value);
-               
                 if (heartRate > 0) {
                     let status = '';
-                   
                     if (heartRate < 60) {
                         status = 'Low (Bradycardia)';
                     } else if (heartRate <= 100) {
@@ -1607,19 +1419,16 @@
                     } else {
                         status = 'High (Tachycardia)';
                     }
-                   
                     const result = `Your heart rate is ${heartRate} bpm (${status})`;
                     document.getElementById('heart-rate-result').textContent = result;
                     document.getElementById('heart-rate-result').style.display = 'block';
-                   
-                    // Update report analysis
                     updateReportAnalysis('heart-rate', heartRate);
                 } else {
                     alert('Please enter a valid heart rate value.');
                 }
             });
         }
-        // Temperature Checker HTML
+
         function getTemperatureCheckerHTML() {
             return `
                 <div class="form-group">
@@ -1630,14 +1439,12 @@
                 <div id="temperature-result" class="calculator-result" style="display: none;"></div>
             `;
         }
-        // Setup Temperature Checker
+
         function setupTemperatureChecker() {
             document.getElementById('check-temperature-btn').addEventListener('click', function() {
                 const temperature = parseFloat(document.getElementById('temperature').value);
-               
                 if (temperature >= 35 && temperature <= 42) {
                     let status = '';
-                   
                     if (temperature < 36.1) {
                         status = 'Low (Hypothermia)';
                     } else if (temperature <= 37.2) {
@@ -1649,7 +1456,6 @@
                     } else {
                         status = 'High fever';
                     }
-                   
                     const result = `Your body temperature is ${temperature}°C (${status})`;
                     document.getElementById('temperature-result').textContent = result;
                     document.getElementById('temperature-result').style.display = 'block';
@@ -1658,7 +1464,7 @@
                 }
             });
         }
-        // Sleep Calculator HTML
+
         function getSleepCalculatorHTML() {
             return `
                 <div class="form-group">
@@ -1678,24 +1484,20 @@
                 <div id="sleep-result" class="calculator-result" style="display: none;"></div>
             `;
         }
-        // Setup Sleep Calculator
+
         function setupSleepCalculator() {
             document.getElementById('calculate-sleep-btn').addEventListener('click', function() {
                 const wakeTime = document.getElementById('wake-time').value;
                 const sleepCycles = parseInt(document.getElementById('sleep-cycles').value);
-               
                 if (wakeTime) {
                     const [hours, minutes] = wakeTime.split(':').map(Number);
                     const totalMinutes = hours * 60 + minutes;
                     const sleepMinutes = sleepCycles * 90;
                     const bedtimeMinutes = (totalMinutes - sleepMinutes + 1440) % 1440;
-                   
                     const bedtimeHours = Math.floor(bedtimeMinutes / 60);
                     const bedtimeMins = bedtimeMinutes % 60;
-                   
                     const bedtime = `${bedtimeHours.toString().padStart(2, '0')}:${bedtimeMins.toString().padStart(2, '0')}`;
                     const result = `You should go to bed at ${bedtime} to get ${sleepCycles} sleep cycles (${sleepCycles * 1.5} hours).`;
-                   
                     document.getElementById('sleep-result').textContent = result;
                     document.getElementById('sleep-result').style.display = 'block';
                 } else {
@@ -1703,7 +1505,7 @@
                 }
             });
         }
-        // Water Intake Calculator HTML
+
         function getWaterIntakeCalculatorHTML() {
             return `
                 <div class="form-group">
@@ -1724,27 +1526,17 @@
                 <div id="water-result" class="calculator-result" style="display: none;"></div>
             `;
         }
-        // Setup Water Intake Calculator
+
         function setupWaterIntakeCalculator() {
             document.getElementById('calculate-water-btn').addEventListener('click', function() {
                 const weight = parseFloat(document.getElementById('water-weight').value);
                 const activityLevel = parseFloat(document.getElementById('activity-level').value);
-               
                 if (weight > 0) {
-                    // Base calculation: 35ml per kg of body weight
                     let waterIntake = weight * 35;
-                   
-                    // Adjust for activity level
                     waterIntake *= activityLevel;
-                   
-                    // Convert to liters
                     const waterIntakeLiters = waterIntake / 1000;
-                   
-                    // Convert to glasses (assuming 250ml per glass)
                     const waterIntakeGlasses = Math.round(waterIntake / 250);
-                   
                     const result = `Your recommended daily water intake is ${waterIntakeLiters.toFixed(1)} liters (approximately ${waterIntakeGlasses} glasses of 250ml each).`;
-                   
                     document.getElementById('water-result').textContent = result;
                     document.getElementById('water-result').style.display = 'block';
                 } else {
@@ -1752,32 +1544,29 @@
                 }
             });
         }
-        // Save data to personal info
+
         function saveToPersonalInfo(field, value) {
-            let personalInfo = JSON.parse(localStorage.getItem('personalInfo')) || {};
+            let personalInfo = getPersonalInfo();
             personalInfo[field] = value;
-            localStorage.setItem('personalInfo', JSON.stringify(personalInfo));
+            savePersonalInfo(personalInfo);
         }
-        // Update report analysis
+
         function updateReportAnalysis(type, value) {
-            let analysisData = JSON.parse(localStorage.getItem('analysisData')) || {};
-           
+            let analysisData = getAnalysisData();
             switch(type) {
                 case 'heart-rate':
                     analysisData.heartRate = value;
                     let hrStatus = 'Normal';
                     if (value < 60) hrStatus = 'Low';
                     else if (value > 100) hrStatus = 'High';
-                   
                     document.getElementById('hr-value').textContent = `${value} bpm`;
                     document.getElementById('hr-status').textContent = hrStatus;
                     document.getElementById('hr-status').className = `analysis-status status-${hrStatus.toLowerCase()}`;
                     break;
             }
-           
-            localStorage.setItem('analysisData', JSON.stringify(analysisData));
+            saveAnalysisData(analysisData);
         }
-        // Load motivational quote
+
         function loadMotivationalQuote() {
             const quotes = [
                 { text: "Take care of your body. It's the only place you have to live.", author: "Jim Rohn" },
@@ -1789,15 +1578,60 @@
                 { text: "The first wealth is health.", author: "Ralph Waldo Emerson" },
                 { text: "A fit body, a calm mind, a house full of love. These things cannot be bought – they must be earned.", author: "Naval Ravikant" }
             ];
-           
-            // Get random quote
             const randomIndex = Math.floor(Math.random() * quotes.length);
             const quote = quotes[randomIndex];
-           
-            // Update quote display
             document.getElementById('motivational-quote').textContent = quote.text;
             document.getElementById('quote-author').textContent = `— ${quote.author}`;
         }
     </script>
 </body>
-</html>
+</html>d="access-error" style="color: red; margin-top: 10px; display: none;">Invalid share code. Please try again.</div>
+            <div style="margin-top: 30px;">
+                <button id="back-to-welcome" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to Welcome</button>
+            </div>
+        </div>
+    </div>
+    <div id="doctor-view-page" class="page">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1 class="dashboard-title">Patient Health Information</h1>
+                <button id="back-to-doctor-access" class="btn"><i class="fas fa-arrow-left"></i> Back</button>
+            </div>
+            <div id="doctor-info-container" class="personal-info-container"></div>
+        </div>
+    </div>
+    <div id="password-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Enter Password</h3>
+                <button class="close-btn" id="close-password-modal">&times;</button>
+            </div>
+            <div class="form-group">
+                <label for="password-input">Password</label>
+                <input type="password" id="password-input" placeholder="Enter your password">
+            </div>
+            <button id="verify-password-btn" class="btn">Verify</button>
+            <div id="password-error" style="color: red; margin-top: 10px; display: none;">Incorrect password. Please try again.</div>
+        </div>
+    </div>
+    <div id="doctor-view-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Doctor Access</h3>
+                <button class="close-btn" id="close-doctor-modal">&times;</button>
+            </div>
+            <div class="form-group">
+                <label for="doctor-code-input">Share Code</label>
+                <input type="text" id="doctor-code-input" placeholder="Enter 6-character code" maxlength="6">
+            </div>
+            <button id="view-patient-btn" class="btn">View Patient Information</button>
+            <div id="doctor-code-error" style="color: red; margin-top: 10px; display: none;">Invalid share code. Please try again.</div>
+        </div>
+    </div>
+    <div id="calculator-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="calculator-title">Calculator</h3>
+                <button class="close-btn" id="close-calculator-modal">&times;</button>
+            </div>
+            <div i
